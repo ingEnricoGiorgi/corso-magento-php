@@ -1,3 +1,11 @@
+<?php 
+        $arMenu = [
+            ['nome' => 'Azienda', 'url' => '#azienda'],
+            ['nome' => 'Storia', 'url' => '#storia'],
+            ['nome' => 'Contatti', 'url' => '#contatti'],
+        ];
+        define("NOME_SITO", "Esercitazioni PHP");
+?>
 <!doctype html>
 <html lang="en">
 
@@ -5,23 +13,17 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Sezione Menù</title>
+    <title><?= NOME_SITO ?> Sezione Menù</title>
 </head>
 
 <body>
+
     <h1>Sezione Menù</h1>
-    <?php 
-        $arMenu = [
-            ['nome' => 'Azienda', 'url' => '#azienda'],
-            ['nome' => 'Storia', 'url' => '#storia'],
-            ['nome' => 'Contatti', 'url' => '#contatti'],
-        ];
-    ?>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -38,6 +40,12 @@
             </div>
         </div>
     </nav>
+    <pre>
+        <?php echo "stiamo lavorando nel file: ", __FILE__, PHP_EOL;  ?>
+        <?php echo "stiamo lavorando nella directory: ", __DIR__, "\n";  ?>
+        <?php echo "stiamo lavorando nella riga: ", __LINE__, "\n";  ?>
+    </pre>
+    
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -55,9 +63,11 @@
 </html>
 <?php
     function scriviUrlMenu($elemento){
+        $nome = $elemento['nome'];
+        $url = $elemento['url'];
         print <<<EOD
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="$url">$nome</a>
         </li>
 EOD;
     }
