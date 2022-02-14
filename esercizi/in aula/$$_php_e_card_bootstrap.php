@@ -52,7 +52,7 @@
 </html>
 <?php 
     function creaCard($titolo, $descrizione, $pathImmagine){
-        return <<<EOD
+        $variabile = <<<EOD
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card">
             <img src="$pathImmagine" class="card-img-top" alt="...">
@@ -64,5 +64,6 @@
         </div>
       </div>
 EOD;
+        return $variabile;
     }
 ?>
