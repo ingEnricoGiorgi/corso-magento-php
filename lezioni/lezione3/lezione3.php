@@ -161,61 +161,119 @@ print "******* operatori di confronto \n" ;
 // print $a;
 
 
-$a = 10;
-if ($a < 5){
-    print "a è < 5";
-}else{
-    if ($a == 5){
-        print "a è uguale 5";
+// $a = 10;
+// if ($a < 5){
+//     print "a è < 5";
+// }else{
+//     if ($a == 5){
+//         print "a è uguale 5";
+//     }else{
+//         if ($a > 10){
+//             print "a è > 10";
+//         }else{
+//             print "a è > 5 e <= 10";
+//         }    
+//     }
+// }
+// print PHP_EOL;
+// if ($a < 5){
+//     print "a è < 5";
+// }elseif ($a == 5){
+//     print "a è uguale 5";
+// }elseif ($a > 10){
+//     print "a è > 10";
+// }else{
+//     print "a è > 5 e <= 10";
+// }
+// print PHP_EOL;
+// switch (true){
+//     case $a < 5:
+//         print "a è < 5";
+//         break;
+//     case $a == 5:
+//         print "a è == 5";
+//         break;
+//     case $a > 10:
+//         print "a è >10";
+//         break;
+//     default:
+//         print "a è > 5 e <= 10";
+//         break;
+
+// }
+// print PHP_EOL;
+// $dislocazione = 60;
+
+// switch (true){
+//     case $dislocazione == 15:
+//     case $dislocazione == 1:
+//     case $dislocazione == 10:
+//     case $dislocazione == 25:
+//     case $dislocazione == 8:
+//         print "prodotto in offerta" . PHP_EOL;
+//         break; //importante sempre prima del case sucessivo
+//     case $dislocazione > 50 && $dislocazione < 100:
+//         print "prodotto non vendibile" . PHP_EOL;
+//         break; //importante sempre prima del case sucessivo
+//     case $dislocazione >= 100 && $dislocazione <= 150:
+//         print "prodotto in offerta a Natale" . PHP_EOL;
+//         break; //importante sempre prima del case sucessivo
+//     }
+
+//     print "Luca" . "vuole" . "stampare";
+//     print PHP_EOL;
+//     echo "Luca" . "vuole" . "stampare";
+//     print PHP_EOL;
+//     echo "Luca", "vuole", "stampare";
+    
+//     $b=10;
+//     print "************* op ternario ";
+//     print PHP_EOL;
+    
+//     if ($b==10){
+//         print "b è 10";
+//     }else{
+//         print "b diversa da 10";
+//     }
+//     print PHP_EOL;
+//     ($b==10) ? print "b è 10" : print "b diversa da 10";
+//     print PHP_EOL;
+//     print ($b==10) ? "b è 10" : "b diversa da 10";
+//     print PHP_EOL;
+
+//     //($b==10) ? print "b è 10" : (($b>10) ? print "b è  > 10" : print "b diversa da 10");
+
+//     $c = ($b > 10) ? $b : 15;
+//     if ($b > 10){
+//         $c = $b;
+//     }else{
+//         $c = 15;
+//     }
+    //$b = "ciao";
+    // print "-----";
+    // $c = $b ?? ''; //errore b non è definita
+    // print $c;
+    // print "-----";
+    //if then else
+    //()  ?   :
+    //if + then  else
+    //()           ?:   -> se è vero 
+    //() ??             -> se esiste e != null
+    
+    //se b non esiste
+    //$b = "aaa";
+    //$c = $b ? $b : 'altro caso';
+    //$c = $b ?? 'altro caso';
+    // $c = $b ?? 'altro caso';
+    // print $c;
+
+    //caso 1 con isset e if estesa
+    if (isset ($_GET["nome"])){
+        $nome = $_GET["nome"]; 
     }else{
-        if ($a > 10){
-            print "a è > 10";
-        }else{
-            print "a è > 5 e <= 10";
-        }    
+        $nome = "default"; 
     }
-}
-print PHP_EOL;
-if ($a < 5){
-    print "a è < 5";
-}elseif ($a == 5){
-    print "a è uguale 5";
-}elseif ($a > 10){
-    print "a è > 10";
-}else{
-    print "a è > 5 e <= 10";
-}
-print PHP_EOL;
-switch (true){
-    case $a < 5:
-        print "a è < 5";
-        break;
-    case $a == 5:
-        print "a è == 5";
-        break;
-    case $a > 10:
-        print "a è >10";
-        break;
-    default:
-        print "a è > 5 e <= 10";
-        break;
-
-}
-print PHP_EOL;
-$dislocazione = 60;
-
-switch (true){
-    case $dislocazione == 15:
-    case $dislocazione == 1:
-    case $dislocazione == 10:
-    case $dislocazione == 25:
-    case $dislocazione == 8:
-        print "prodotto in offerta" . PHP_EOL;
-        break; //importante sempre prima del case sucessivo
-    case $dislocazione > 50 && $dislocazione < 100:
-        print "prodotto non vendibile" . PHP_EOL;
-        break; //importante sempre prima del case sucessivo
-    case $dislocazione >= 100 && $dislocazione <= 150:
-        print "prodotto in offerta a Natale" . PHP_EOL;
-        break; //importante sempre prima del case sucessivo
-    }
+    //caso 2 con operatore colaesce
+    $nome = $_GET["nome"] ?? "default";
+    //caso 3 con opertore ternario
+    $nome = (isset($_GET["nome"])) ? $_GET["nome"] : "default";
