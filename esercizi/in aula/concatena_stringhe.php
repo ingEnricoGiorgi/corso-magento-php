@@ -8,15 +8,19 @@
 //-quinto messaggio
 //-fine
 //alla fine stampare la stringa completa
+$lista = null;
 function concatena(string $str){
     global $lista;
-    $lista .= $str;
+    $lista .= $str . PHP_EOL;
 }
-$lista = null;
-concatena ('primo messaggio' . PHP_EOL);
-concatena ('secondo messaggio' . PHP_EOL);
-concatena ('terzo messaggio' . PHP_EOL);
-concatena ('quarto messaggio' . PHP_EOL);
-concatena ('quinto messaggio' . PHP_EOL);
-concatena ('fine' . PHP_EOL);
+concatena ('primo messaggio');
+concatena ('secondo messaggio');
+concatena ('terzo messaggio');
+concatena ('quarto messaggio');
+concatena ('quinto messaggio');
+/////
+$var = 5;
+concatena ("il valore di var è $var");
+//////
+concatena ('fine');
 print $lista;
