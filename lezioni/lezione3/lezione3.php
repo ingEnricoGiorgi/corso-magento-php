@@ -49,39 +49,173 @@
 //-fine
 //alla fine stampare la stringa completa
 
-print "******* operatori incremento / decremento \n" ;
-$conta = 5;
-$conta1 = 5;
+// print "******* operatori incremento / decremento \n" ;
+// $conta = 5;
+// $conta1 = 5;
 
-stampaVariabile ("conta", $conta++, __LINE__); //stamperà 5
-stampaVariabile ("conta", $conta, __LINE__); //stamperà 6
-stampaVariabile ("conta1", ++$conta1, __LINE__); //stamperà 6
-stampaVariabile ("conta1", $conta1, __LINE__); //stamperà 6
-// $v = 15;
-// print $v++ . PHP_EOL;
-// print "la variabile in questo punta vale $v" . PHP_EOL;
+// stampaVariabile ("conta", $conta++, __LINE__); //stamperà 5
+// stampaVariabile ("conta", $conta, __LINE__); //stamperà 6
+// stampaVariabile ("conta1", ++$conta1, __LINE__); //stamperà 6
+// stampaVariabile ("conta1", $conta1, __LINE__); //stamperà 6
+// // $v = 15;
+// // print $v++ . PHP_EOL;
+// // print "la variabile in questo punta vale $v" . PHP_EOL;
 
-function stampaVariabile($nome, $valore, $riga){
-    print "la variabile: $nome a riga: $riga ha valore: $valore" . PHP_EOL;
-}
+// function stampaVariabile($nome, $valore, $riga){
+//     print "la variabile: $nome a riga: $riga ha valore: $valore" . PHP_EOL;
+// }
 
-print "******* operatori logici \n" ;
+// print "******* operatori logici \n" ;
 // && = and
 // || = or
 // xor
 
-//è fine anno e l'azienda intende assegnare un aumento e/o un premio
-//l'aumento verrà dato a chi avrà fatturato + di 500.000 e avrà un numero di presenze > 170
+// if (! 5 > 2 ){
+//     print "è vero";
+// }else{
+//     print "è falso";
+// }
 
-//il premio verrà dato a chi avrà fatturato + di 300.000 oppure a chi avrà un numero di presenze > 150
+// //le variabili sono tutte true tranne:
+// // ""           stringa vuota
+// // 0            numero = 0
+// // false        boolean = false
+// // null         variabile null
+// // []           array vuoto
+// print PHP_EOL;
+// dimmiSeVeroOFalso(0); //false
+// dimmiSeVeroOFalso(1); //true
+// dimmiSeVeroOFalso(2); //true
+// dimmiSeVeroOFalso("ciao"); //true
+// dimmiSeVeroOFalso(""); //false
+// dimmiSeVeroOFalso([]); //false
+// dimmiSeVeroOFalso([1,2,3]); //true
+// dimmiSeVeroOFalso(null); //false
 
-//il contratto verrà rinnovato a chi avrà un numero di assenze > 50 oppure un numero di lamentele > 5 ma non entrambi 
-//giorni totali possibili = 195
-$arDipendenti = [
-    ['name' => 'Marco', 'fatturato' => 550000, 'presenze' => 175, 'lamentele' => 2],
-    ['name' => 'Silvia', 'fatturato' => 250000, 'presenze' => 140, 'lamentele' => 7],
-    ['name' => 'Stefano', 'fatturato' => 300000, 'presenze' => 165, 'lamentele' => 3],
-    ['name' => 'Gianni', 'fatturato' => 440000, 'presenze' => 165, 'lamentele' => 6],
-    ['name' => 'Elisa', 'fatturato' => 200000, 'presenze' => 175, 'lamentele' => 3],
-];
+// function dimmiSeVeroOFalso($v1){
+//     if ($v1) {
+//         print serialize($v1).": vero";
+//     }else{
+//         print serialize($v1).": falso";
+//     }
+//     print PHP_EOL;
+// }
 
+print "******* operatori di confronto \n" ;
+// ==   uguale      (verifica solo il valore)
+// !=   diverso     (verifica solo il valore)
+// ===  identico    (verifica sia il tipo che il valore)
+// <>   diverso
+// !==  non identico (verifica sia il tipo che il valore)
+// >    maggiore
+// <    minore
+// >=   maggiore o uguale
+// <=   minore o uguale
+// <=>  comparazione    (vale 0 se uguale 1 se > il primo -1 se maggiore il secondo)
+
+// print "il valore è " . (5 == 5) . PHP_EOL; //vero
+// print "il valore è " . (5 == "5") . PHP_EOL;    //vero
+// print "il valore è " . (5 === "5") . PHP_EOL;   //falso
+// print "il valore è " . (5 === 5) . PHP_EOL;   //vero
+// print "******" . PHP_EOL;
+// print "il valore è " . (5 != 5) . PHP_EOL; //falso
+// print "il valore è " . (5 != "5") . PHP_EOL;    //falso
+// print "il valore è " . (5 !== "5") . PHP_EOL;   //vero
+// print "il valore è " . (5 !== 5) . PHP_EOL;   //falso
+// print "******" . PHP_EOL;
+// print "il valore è " . (5 <=> 5) . PHP_EOL; //0
+// print "il valore è " . (6 <=> 5) . PHP_EOL; //1
+// print "il valore è " . (5 <=> 6) . PHP_EOL; //-1
+
+// //necessito di registrare dei clienti
+// //non posso accettare 2 clienti con lo stesso numero di iscrizione
+
+// if (($numeroDiIscrizione1 <=> $numeroDiIscrizione2) === 0){
+//     print "errore";
+// }
+
+// //numeri
+// //maiuscole
+// //minuscole
+// print PHP_EOL;
+// dimmiChiEMaggiore ("CIAO", "ciao"); //ciao
+// dimmiChiEMaggiore ("Alfa", "beta"); //beta
+// dimmiChiEMaggiore ("alfa", "ZARA"); //alfa
+// dimmiChiEMaggiore ("012", "ZARA");
+// dimmiChiEMaggiore ("012", "zara");
+// dimmiChiEMaggiore ("012", "zara");
+// dimmiChiEMaggiore ("AlFa", "ALFA"); //AlFa
+
+// function dimmiChiEMaggiore($v1, $v2){
+//     if ($v1 > $v2){
+//         print "$v1 > $v2" . PHP_EOL;
+//     }else{
+//         print "$v2 > $v1" . PHP_EOL;
+//     }
+// }
+// $a = 5;
+// if ($a == 1){ //non fare MAI confronto con 1 solo = ($a = 1) //ERRORE GRAVE!!!
+//     print "è 1";
+// }
+// print PHP_EOL;
+// print $a;
+
+
+$a = 10;
+if ($a < 5){
+    print "a è < 5";
+}else{
+    if ($a == 5){
+        print "a è uguale 5";
+    }else{
+        if ($a > 10){
+            print "a è > 10";
+        }else{
+            print "a è > 5 e <= 10";
+        }    
+    }
+}
+print PHP_EOL;
+if ($a < 5){
+    print "a è < 5";
+}elseif ($a == 5){
+    print "a è uguale 5";
+}elseif ($a > 10){
+    print "a è > 10";
+}else{
+    print "a è > 5 e <= 10";
+}
+print PHP_EOL;
+switch (true){
+    case $a < 5:
+        print "a è < 5";
+        break;
+    case $a == 5:
+        print "a è == 5";
+        break;
+    case $a > 10:
+        print "a è >10";
+        break;
+    default:
+        print "a è > 5 e <= 10";
+        break;
+
+}
+print PHP_EOL;
+$dislocazione = 60;
+
+switch (true){
+    case $dislocazione == 15:
+    case $dislocazione == 1:
+    case $dislocazione == 10:
+    case $dislocazione == 25:
+    case $dislocazione == 8:
+        print "prodotto in offerta" . PHP_EOL;
+        break; //importante sempre prima del case sucessivo
+    case $dislocazione > 50 && $dislocazione < 100:
+        print "prodotto non vendibile" . PHP_EOL;
+        break; //importante sempre prima del case sucessivo
+    case $dislocazione >= 100 && $dislocazione <= 150:
+        print "prodotto in offerta a Natale" . PHP_EOL;
+        break; //importante sempre prima del case sucessivo
+    }
