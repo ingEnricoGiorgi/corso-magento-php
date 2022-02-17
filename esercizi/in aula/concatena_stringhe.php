@@ -18,9 +18,5 @@ concatena ('secondo messaggio');
 concatena ('terzo messaggio');
 concatena ('quarto messaggio');
 concatena ('quinto messaggio');
-/////
-$var = 5;
-concatena ("il valore di var è $var");
-//////
 concatena ('fine');
 print $lista;
