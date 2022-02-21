@@ -260,6 +260,7 @@ print "******* operatori di confronto \n" ;
     //()           ?:   -> se è vero 
     //() ??             -> se esiste e != null
     
+    $c = $b ?: 'non esiste';
     //se b non esiste
     //$b = "aaa";
     //$c = $b ? $b : 'altro caso';
