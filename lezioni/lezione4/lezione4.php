@@ -238,5 +238,7 @@
     6. ripresentare sotto al numero random il medesimo form "pronto" per ricalcolare un altro numero random
 
     */
+
+
     
 ?>
