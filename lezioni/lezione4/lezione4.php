@@ -157,40 +157,86 @@
 
 // print PHP_EOL;
 
-// if (password_verify($input_password,$password_db)){ //vedere ???
+// if (password_verify($input_password,$password_db)){ //corretto !!!
 //     print "ok";
 // }else{
 //     print "errore";
 // }
-
-print PHP_EOL;
-$str = "lunedì,martedì,mercoledì";
-$ar = explode(",", $str);
-print_r($ar); 
-print PHP_EOL;
+// die;
+// print PHP_EOL;
+// $str = "lunedì,martedì,mercoledì";
+// $ar = explode(",", $str);
+// print_r($ar); 
+// print PHP_EOL;
 // Array
 // (
 //     [0] => lunedì
 //     [1] => martedì
 //     [2] => mercoledì
 // )
-$ar2 = ["aaa", "bbb", "ccc"];
+// $ar2 = ["aaa", "bbb", "ccc"];
 
-print $str2 = implode("-",$ar2); //lunedì-martedì-mercoledì
-print PHP_EOL;
+// print $str2 = implode("-",$ar2); //lunedì-martedì-mercoledì
+// print PHP_EOL;
 
-print strtoupper($str2);
-print PHP_EOL;
+// print strtoupper($str2);
+// print PHP_EOL;
 
-$stringa = "  ciao  ";
-print "-$stringa-\n"; //-  ciao  -
-print "-" . trim($stringa) . "-\n"; //-ciao-
+// $stringa = "  ciao  ";
+// print "-$stringa-\n"; //-  ciao  -
+// print "-" . trim($stringa) . "-\n"; //-ciao-
 
-print PHP_EOL;
-print sprintf("l'utente %s si è loggato numero: %d volte per un totale di secondi: %.2f ", "Mario Rossi", 15, 120.3698);
-//l'utente Mario Rossi si è loggato numero: 15 volte per un totale di secondi: 120.37
-print PHP_EOL;
+// print PHP_EOL;
+// print sprintf("l'utente %s si è loggato numero: %d volte per un totale di secondi: %.2f ", "Mario Rossi", 15, 120.3698);
+// //l'utente Mario Rossi si è loggato numero: 15 volte per un totale di secondi: 120.37
+// print PHP_EOL;
 
-$stringa_con_html_entities = htmlentities("<script>alert('titolo principale')</script>");
-print html_entity_decode($stringa_con_html_entities);
+// $stringa_con_html_entities = htmlentities("<script>alert('titolo principale')</script>");
+// print html_entity_decode($stringa_con_html_entities);
 
+// print "questa è una stringa \n che va su più righe";
+
+// echo strftime('%B'); //February
+// print PHP_EOL;
+// setlocale(LC_ALL, 'it_IT', 'ita_ita');
+// setlocale(LC_ALL, 'en_US', 'ita_ita');
+// echo ucfirst(strftime('%B')); //Febbraio
+
+// print str_pad("65789",12,"0",STR_PAD_LEFT);
+
+// $cc = "65789";
+// print PHP_EOL;
+// for ($i = 0; $i < 12; $i++){
+//     $cc ="0" . $cc;
+//     if (strlen($cc)>=12) break;
+// }
+// print $cc;
+
+// print_r(str_split("ciao a tutti",3));
+
+// $messaggio = "<strong>ciao a tutti</strong><p>questo ok</p><script>alert('fregato!!')</script>";
+// print strip_tags($messaggio,"<p><strong>");
+
+// $ar = [5,8,90,45,22,100];
+// print max($ar); //100
+// print PHP_EOL;
+
+// print rand(); //numero intero casuale
+// print PHP_EOL;
+// print rand(1,100); //numero intero casuale
+// print PHP_EOL;
+
+// print round(10.25589, 2);
+
+/*creare un form che:
+    1. presenti 2 parametri: minimo e massimo (input number)
+    2. alla pressione del submit riceva i due parametri
+    3. controlli i 2 parametri grazie a filter_var($parametro1, FILTER_SANITIZE_NUMBER_INT);
+    4. se i parametri non sono numerici o > 0 presentare errore tramite alert di bootstrap
+    4a. se il 1 parametro è > o = al secondo presentare errore
+    5. se tutto ok creare un numero random compreso tra i 2 paramentri 
+    6. ripresentare sotto al numero random il medesimo form "pronto" per ricalcolare un altro numero random
+
+    */
+    
+?>
