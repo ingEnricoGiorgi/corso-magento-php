@@ -6,6 +6,7 @@
         - visualizzato all'utente
 
 */
+        include ("functions.php");
         $numero = filter_var($_REQUEST["numero"] ?? 0, FILTER_SANITIZE_NUMBER_INT);
         $risultato = $numero * 2;
         $form = <<<EOD
@@ -67,13 +68,13 @@ EOD;
   </body>
 </html>
 <?php 
-    function scriviMessaggio($messaggio, $type){
-        return <<<EOD
-        <div class="alert alert-$type" role="alert">
-            <h3 class="display-5 text-center">
-                $messaggio
-            </h3>
-        </div>          
-EOD;
-    }
+//     function scriviMessaggio($messaggio, $type){
+//         return <<<EOD
+//         <div class="alert alert-$type" role="alert">
+//             <h3 class="display-5 text-center">
+//                 $messaggio
+//             </h3>
+//         </div>          
+// EOD;
+//     }
 ?>

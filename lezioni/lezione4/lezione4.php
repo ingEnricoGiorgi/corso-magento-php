@@ -239,6 +239,34 @@
 
     */
 
+    //empty verifica se la variabile esiste ed ha un valore
+    $msg = "ciao";
+    if (empty($msg)){
+        print "non esiste oppure è false";
+    }else{
+        print "esiste ed è true";
+    }
 
+    print PHP_EOL;
+    $inputUtente = "aaa a541";
+    print gettype($inputUtente);
+    print PHP_EOL;
+    $int = intval($inputUtente); //intval = cast della variabile da string a int
+    print $int;
+    print PHP_EOL;
+    print gettype($int);
+    print PHP_EOL;
+    
+    if (is_string($int)){
+        print "la variabile è string!!";
+    }
+    if (is_int($int)){
+        print "la variabile è integer!!";
+    }
+    print PHP_EOL;
+    settype($inputUtente, "integer"); //intval = cast della variabile da string a int
+    print $inputUtente;
+    print PHP_EOL;
+    
     
 ?>
