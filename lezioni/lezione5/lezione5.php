@@ -25,10 +25,11 @@
             <div class="col-12">
                 <?php
                     //Array ( [cognome] => Casadei [nome] => Mauro [telefono] => 0541654789 )
+                    //print_r($_REQUEST);
                     $ar = array();
                     foreach ($_REQUEST as $name => $value){
-                        $value_sanitizzato = htmlspecialchars($value, ENT_QUOTES);
-                        $name_sanitizzato = htmlspecialchars($name, ENT_QUOTES);
+                        $value_sanitizzato = sanitizzaString($value);
+                        $name_sanitizzato = sanitizzaString($name);
                         $ar[$name_sanitizzato] = $value_sanitizzato;
                     }
                     printTable($ar);
@@ -98,5 +99,9 @@ EOD;
         </tbody>
         </table>
 EOD;
+    }
+    function sanitizzaString($var){
+        return addslashes(htmlspecialchars(strip_tags($var), ENT_QUOTES));
+        //return htmlspecialchars($var, ENT_QUOTES);
     }
 ?>
