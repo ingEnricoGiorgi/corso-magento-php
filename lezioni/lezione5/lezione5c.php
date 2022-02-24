@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,14 +18,14 @@
     <?php
         //sanitizzare password
         $utenteLoggato=false;
-        $password = $_REQUEST["pwd"];
+        $password = $_REQUEST["pwd"] ?? null;
         if(isset($password) && $password === "pwdvalida"){
             //utente è loggato
-            $utenteLoggato=true;
+            $_SESSION["utenteLoggato"]=true;
         }else{
             print "password non valida";
         }
-        if ($utenteLoggato){
+        if ($_SESSION["utenteLoggato"]){
             print "<h1 class=\"text-center\">utente loggato</h1>";
         }
     ?>
