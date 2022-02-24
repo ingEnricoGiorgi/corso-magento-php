@@ -34,7 +34,19 @@
                         $name_sanitizzato = sanitizzaString($name);
                         $ar[$name_sanitizzato] = $value_sanitizzato;
                     }
+                    //foto_panorama.jpg
+                    //nome temporaneo del file: $_FILES['immagine']['tmp_name'] //tmx3456ddasf.jpg
+                    //nome reale del file $_FILES['immagine']['name'] //foto_panorama.jpg
                     printTable($ar);
+                    if (isset ($_FILES['immagine']) ){
+                        print_r($_FILES);
+                        $nomefile = "../images/" . $_FILES['immagine']['name'];
+                        $uploaded = move_uploaded_file($_FILES['immagine']['tmp_name'], __DIR__ . "/../images/" . $_FILES['immagine']['name']);
+                        if($uploaded) {
+                            print "file uploaded";
+                        }
+                        print "<img class=\"img-thumb\" src=\"./$nomefile\">";
+                    }
                 ?>
             </div>    
         </div>
@@ -48,6 +60,7 @@
                         print createInput("nome", "Nome", "required");
                         print createInput("telefono", "Telefono", null);
                         print createInput("citta", "Città", null);
+                        print createInput("immagine", "Immagine", null, "file");
                     ?>
                     <button type="submit" class="btn btn-primary">Invia i Dati</button>
                 </form>
@@ -66,7 +79,7 @@
   </body>  </body>
 </html>
 <?php 
-    function createInput($name, $label, $attributi = null){
+    function createInput($name, $label, $attributi = null, $type = "text"){
         $obbligatorio = null;
         if (substr_count($attributi, "required") > 0){
             $obbligatorio = "*";
@@ -74,7 +87,7 @@
         return <<<EOD
         <div class="input-group mb-3">
             <label class="input-group-text" for="$name">$label$obbligatorio</label>
-            <input type="text" class="form-control" id="$name" name="$name"  placeholder="Inserisci il $label" $attributi>
+            <input type="$type" class="form-control" id="$name" name="$name"  placeholder="Inserisci il $label" $attributi>
         </div>
 EOD;
     }
