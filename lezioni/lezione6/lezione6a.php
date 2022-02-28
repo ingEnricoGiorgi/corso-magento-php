@@ -4,11 +4,13 @@ $conn = null;
 if (! connetti()){
     die ("ERRORE");
 }
-if (! inserisci()){
-    die ("ERRORE");
-}
-if (! inserisci2()){
-    die ("ERRORE");
+if (isset($_REQUEST["nome"]) && isset($_REQUEST["cognome"])){
+    if (! inserisci()){
+        die ("ERRORE");
+    }
+    // if (! inserisci2()){
+    //     die ("ERRORE");
+    // }
 }
 if (! leggi()){
     die ("ERRORE");
@@ -36,10 +38,10 @@ function connetti(){
     return true;
 }
 function inserisci(){
-    global $conn, $argv;
+    global $conn;
 
-    $nome = $argv[1]; //"giovanni";
-    $cognome = $argv[2]; //"de angeli";
+    $nome = $_REQUEST["nome"]; //"giovanni";
+    $cognome = $_REQUEST["cognome"]; //"de angeli";
 
     //inizializzo lo statement
     $stmt = mysqli_stmt_init($conn);
@@ -62,11 +64,11 @@ function inserisci(){
     //costruzione della query + inserimento di parametri + esecuzione
 }
 function inserisci2(){
-    global $conn, $argv;
+    global $conn;
     
     //ripulisce i parametri per l'inserimento nella query
-    $nome = mysqli_real_escape_string($conn, $argv[1] ?? null);
-    $cognome = mysqli_real_escape_string($conn,  $argv[2] ?? null);
+    $nome = mysqli_real_escape_string($conn, $_REQUEST["nome"] ?? null);
+    $cognome = mysqli_real_escape_string($conn,  $_REQUEST["cognome"] ?? null);
 
     //costruisce la query
     $sql = "INSERT INTO utenti (nome,cognome) VALUES ('$nome','$cognome')";
@@ -81,16 +83,15 @@ function inserisci2(){
 function leggi(){
     global $conn;
     //query
-    print "\n";
-    $result = mysqli_query($conn, "SELECT * FROM utenti WHERE id_utente < 10");
+
+    $result = mysqli_query($conn, "SELECT * FROM utenti");
     if (! $result){
         print ("Errore nella Query:" . mysqli_error($conn));
         return false;
     }
     //fetch
-    print "\n";
     while ($row = mysqli_fetch_assoc($result)){
-        printf ("Cognome:%s - Nome:%s \n", $row["cognome"], $row["nome"]);
+        printf ("Cognome:%s - Nome:%s <br>", $row["cognome"], $row["nome"]);
     }
     return true;
 }
