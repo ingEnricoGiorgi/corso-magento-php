@@ -1,5 +1,5 @@
 <!-- tramite bootstrap modal visualizzare una pop up con un a immagine 
-impostare un cookie a durata 1 minuto
+impostare un cookie a durata 1 gg 
 non mostrare il banner fino a che esiste il cookie
 -->
 
@@ -42,7 +42,7 @@ non mostrare il banner fino a che esiste il cookie
         });
     </script>
     <?php } 
-        setcookie('banner', strtotime("+1 minute"));
+        setcookie('banner', strtotime("+1 day"));
     ?>
   </body>
 </html>
