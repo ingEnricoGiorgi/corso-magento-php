@@ -20,6 +20,10 @@
     --** NEW: del form controlalre i dati e inserirli nella tabella utenti 
  -->
  <?php 
+    include_once ("./database.php");
+    if (! connetti()){
+        die ("ERRORE db");
+    }
     if (isset($_REQUEST["logout"])){
         //vuole uscire
         if (! isset($_SESSION["utente"])){
@@ -30,17 +34,15 @@
             unset($_SESSION["utente"]);
         }
     }else{
+        
         if (isset($_SESSION["utente"])){
             //è loggato
             $messaggio = "Ciao " . $_SESSION["utente"] ?? null;
         }else{
             //non è loggato
             if ($_REQUEST['password'] ?? null){
-                $password = htmlspecialchars($_REQUEST['password']);
-                $utente = htmlspecialchars($_REQUEST['user']);
-                if (password_verify($password, password_hash('mia-pwd', PASSWORD_DEFAULT))){
+                if (controlla_utente()){
                     //password corretta
-                    $_SESSION["utente"] = $utente;
                     $messaggio = "Benvenuto ". $_SESSION["utente"] ?? null;;
                 }else{
                     $messaggio = "Password non corretta!";
@@ -78,17 +80,17 @@
         <div class="row">
             <div class="col-12">
                 <h2>Logout</h2>
-                <a class="btn btn-danger" href="./login_session.php?logout=true">logout</a>
+                <a class="btn btn-danger" href="./login_session_and_insert.php?logout=true">logout</a>
             </div>
         </div>
 
         <div class="row my-5">
             <div class="col-12">
             <h2>Login</h2>
-                <form action="login_session.php" method="POST" name="login" enctype="multipart/form-data">
+                <form action="login_session_and_insert.php" method="POST" name="login" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="user" class="form-label">Utente</label>
-                        <input type="text" class="form-control" id="user" name="user" >
+                        <label for="utente" class="form-label">Utente</label>
+                        <input type="text" class="form-control" id="utente" name="utente" >
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" >
                         <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
@@ -107,5 +109,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+    <?php 
+        if (! disconnetti()){
+            die ("ERRORE db");
+        }
+    ?>
   </body>
 </html>
