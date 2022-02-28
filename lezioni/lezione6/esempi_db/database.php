@@ -44,7 +44,12 @@ function inserisci(){
         print("Errore nell'inserimento: " . mysqli_stmt_error($stmt));
         return false;
     }
-    print "Il record inserito ha id:" . mysqli_insert_id($conn). "<br>";
+    $id_inserted = mysqli_insert_id($conn);
+    print <<<EOD
+    <div class="alert alert-success" role="alert">
+    Il record inserito ha id: $id_inserted
+    </div>
+EOD;
     return true;
 }
 function controlla_utente(){
@@ -63,7 +68,6 @@ function controlla_utente(){
         return false;
     }
     while ($row = mysqli_fetch_assoc($result)){
-        echo $row["password"],"-", $password ."<br>";
         if (password_verify($password, $row["password"])) {
             $_SESSION["utente"] = $row["nome"] . " " . $row["cognome"];
             return true;
