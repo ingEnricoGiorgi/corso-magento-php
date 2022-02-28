@@ -18,18 +18,18 @@
  -->
  <?php 
         $messaggio = null;
-        if ($_REQUEST['password'] ?? null){
-            $password = htmlspecialchars($_REQUEST['password']);
-            if (password_verify($password, password_hash('mia-pwd', PASSWORD_DEFAULT))){
-                //password corretta
-                setcookie('login','ok', strtotime("+1 minutes"));
-                $messaggio = "Benvenuto Utente";
-            }else{
-                $messaggio = "Password non corretta!";
-            }
+        if ($_COOKIE["login"] ?? null){
+            $messaggio = "Utente già loggato";
         }else{
-            if ($_COOKIE["login"] ?? null){
-                $messaggio = "Utente già loggato";
+            if ($_REQUEST['password'] ?? null){
+                $password = htmlspecialchars($_REQUEST['password']);
+                if (password_verify($password, password_hash('mia-pwd', PASSWORD_DEFAULT))){
+                    //password corretta
+                    setcookie('login','ok', strtotime("+1 minutes"));
+                    $messaggio = "Benvenuto Utente";
+                }else{
+                    $messaggio = "Password non corretta!";
+                }
             }else{
                 $messaggio = "Utente non loggato";
             }
