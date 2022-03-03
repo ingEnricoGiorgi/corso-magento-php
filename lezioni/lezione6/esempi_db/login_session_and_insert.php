@@ -31,7 +31,7 @@
         }else{
             $messaggio = "Arrivederci " . $_SESSION["utente"] ?? null;
             session_destroy();
-            unset($_SESSION["utente"]);
+            //unset($_SESSION["utente"]);
         }
     }else{
         

@@ -55,8 +55,6 @@ EOD;
 function controlla_utente(){
     global $conn;
 
-    //inizializzo lo statement
-    $stmt = mysqli_stmt_init($conn);
     $password = mysqli_real_escape_string($conn, $_REQUEST["password"] ?? null);
     $utente = mysqli_real_escape_string($conn, $_REQUEST["utente"] ?? null);
 

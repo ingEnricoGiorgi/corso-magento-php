@@ -2,7 +2,7 @@
     session_start();
     if (!isset($_SESSION["utente"])){
         print <<<EOD
-        <meta http-equiv="refresh" content="0; URL='./login_session.php'" />
+        <meta http-equiv="refresh" content="0; URL='./login_session_and_insert.php'" />
 EOD;
         die;
     }
