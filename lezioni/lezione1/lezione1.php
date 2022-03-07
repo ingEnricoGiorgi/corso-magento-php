@@ -49,7 +49,7 @@ function tipiDiVariabile(){
     $f = .5; //float
     $s = "ciao"; //stringa
     $b = true; //booleano
-    $ar = Array(); //Array
+    $ar = array(); //Array
     $ar = []; //Array
     $n = null; //valore nullo
     $o = new stdClass; //oggetto
